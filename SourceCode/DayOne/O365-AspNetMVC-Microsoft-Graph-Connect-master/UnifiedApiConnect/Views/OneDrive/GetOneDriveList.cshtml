@@ -11,9 +11,6 @@
         <th>
             @Html.DisplayNameFor(model => model.createdDateTime)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.microsoftgraphdownloadUrl)
-        </th>
         <th></th>
     </tr>
 
@@ -24,9 +21,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.createdDateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.microsoftgraphdownloadUrl)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

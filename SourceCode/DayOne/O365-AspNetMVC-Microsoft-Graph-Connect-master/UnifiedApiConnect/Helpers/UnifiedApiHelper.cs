@@ -128,7 +128,6 @@ namespace UnifiedApiConnect.Helpers
                             foreach (JToken j in json["value"].Children())
                             {
                                 OneDriveInfo myOneDriveInfo = new OneDriveInfo();
-                                myOneDriveInfo.microsoftgraphdownloadUrl = j?["@microsoft.graph.downloadUrl"]?.ToString();
                                 myOneDriveInfo.Name = j?["name"]?.ToString();
                                 myOneDriveInfo.createdDateTime = DateTime.Parse(j?["createdDateTime"]?.ToString());
                                 myOneDriveInfo.id = j?["id"]?.ToString();

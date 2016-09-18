@@ -52,7 +52,6 @@ namespace UnifiedApiConnect.Models
     {
         public string Name { get; set; }
         public DateTime createdDateTime { get; set; }
-        public string microsoftgraphdownloadUrl { get; set; }
         public string id { get; set; }
     }
     public class EventInfo

@@ -22,6 +22,8 @@ namespace UnifiedApiConnect.Controllers
         }
         public async Task<ActionResult> GetEventInfoList()
         {
+            if (string.IsNullOrEmpty((string)Session[SessionKeys.Login.AccessToken])) return RedirectToAction(nameof(Index), "Home");
+
             List<EventInfo> myDataModelList = new List<EventInfo>();
 
             myDataModelList = await UnifiedApiHelper.GetEventInfoAsync((string)Session[SessionKeys.Login.AccessToken]);

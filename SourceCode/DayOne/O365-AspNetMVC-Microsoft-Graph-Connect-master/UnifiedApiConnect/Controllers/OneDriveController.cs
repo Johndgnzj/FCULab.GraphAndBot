@@ -23,6 +23,7 @@ namespace UnifiedApiConnect.Controllers
 
         public async Task<ActionResult> GetOneDriveList()
         {
+            if (string.IsNullOrEmpty((string)Session[SessionKeys.Login.AccessToken])) return RedirectToAction(nameof(Index), "Home");
             List<OneDriveInfo> myDataModelList = new List<OneDriveInfo>();
 
             myDataModelList = await UnifiedApiHelper.GetOneDriveAsync((string)Session[SessionKeys.Login.AccessToken]);
