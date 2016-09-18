@@ -1,0 +1,44 @@
+﻿@{
+    UnifiedApiConnect.Models.UserInfo userInfo = ViewBag.UserInfo;
+}
+<h2>Calendar</h2>
+<br />
+<form>
+    <p>
+    <p>
+        You're now connected to Office 365!  Click <b>Get Calendar</b> to get a Calendar even list from your Office 365 account using unified API.
+    </p>
+    <br />
+    <p>
+        <button formaction="@Url.Content("~/Calendar/GetEventInfoList")">Get Calendar</button>
+    </p>
+</form>
+<br />
+<p>
+
+    </p>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Office 365 Connect Sample", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Logout", "Home", null, Request.Url.Scheme)"><i class="ms-Icon ms-Icon--x"></i><b>x</b> Disconnect</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    </body>
+    </html>
+
