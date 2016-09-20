@@ -17,7 +17,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @if (item.folder == null)
+            {
+                <a href="@item.microsoftgraphdownloadUrl" target="_blank">@item.Name</a>
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.Name)
+            }
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.createdDateTime)

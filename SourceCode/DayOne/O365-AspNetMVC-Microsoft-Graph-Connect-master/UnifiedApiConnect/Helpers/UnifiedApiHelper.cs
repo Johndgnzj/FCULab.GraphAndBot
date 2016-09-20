@@ -155,6 +155,8 @@ namespace UnifiedApiConnect.Helpers
                                 OneDriveInfo myOneDriveInfo = new OneDriveInfo();
                                 myOneDriveInfo.Name = j?["name"]?.ToString();
                                 myOneDriveInfo.createdDateTime = DateTime.Parse(j?["createdDateTime"]?.ToString());
+                                myOneDriveInfo.microsoftgraphdownloadUrl = j?["@microsoft.graph.downloadUrl"]?.ToString();
+                                myOneDriveInfo.folder = j?["folder"]?.ToString();
                                 myOneDriveInfo.id = j?["id"]?.ToString();
                                 myOneDriveInfolList.Add(myOneDriveInfo);
                             }
