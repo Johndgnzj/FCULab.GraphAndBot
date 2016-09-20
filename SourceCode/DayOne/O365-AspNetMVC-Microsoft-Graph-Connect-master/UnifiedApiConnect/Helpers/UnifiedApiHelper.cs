@@ -45,6 +45,31 @@ namespace UnifiedApiConnect.Helpers
             return myInfo;
         }
 
+        public static async Task<String> CreateEventAsync(string accessToken,string body)
+        {
+            string strRet = string.Empty;
+            string jsonStr = "{\"subject\":\"hello\"}";
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
+                client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", "Bearer " + accessToken);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpContent content = new StringContent(body, Encoding.UTF8, "application/json");
+                HttpResponseMessage msg = await client.PostAsync(Settings.PostEventsUrl, content);
+                if (msg.IsSuccessStatusCode)
+                {
+                    var jsonResponse = await msg.Content.ReadAsStringAsync();
+                    strRet = jsonResponse;
+                }
+                else
+                {
+                    //throw new Exception(msg.StatusCode.ToString());
+                }
+            }
+            return strRet;
+        }
+
         // Construct and send the message that the logged in user wants to send.
         public static async Task<SendMessageResponse> SendMessageAsync(string accessToken, SendMessageRequest sendMessageRequest)
         {

@@ -16,7 +16,10 @@ namespace UnifiedApiConnect.Helpers
         public static string SendMessageUrl = @"https://graph.microsoft.com/v1.0/me/microsoft.graph.sendmail";
         public static string GetMeUrl = @"https://graph.microsoft.com/v1.0/me";
         public static string GetOneDriveUrl = @"https://graph.microsoft.com/v1.0/me/drive/root/children";
+        //public static string GetOneDriveUrl = @"https://graph.microsoft.com/v1.0/groups/29426888-a92e-4dc6-9608-607c88354c48/drive/root/children/";
         public static string GetEventsUrl = @"https://graph.microsoft.com/v1.0/me/events/";
+        public static string PostEventsUrl = @"https://graph.microsoft.com/v1.0/me/calendar/events/";
+        
 
         public static string MessageBody => ConfigurationManager.AppSettings["MessageBody"];
         public static string MessageSubject => ConfigurationManager.AppSettings["MessageSubject"];
