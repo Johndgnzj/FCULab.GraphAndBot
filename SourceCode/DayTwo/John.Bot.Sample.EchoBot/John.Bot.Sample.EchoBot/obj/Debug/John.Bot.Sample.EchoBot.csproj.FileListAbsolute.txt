@@ -1,0 +1,39 @@
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Bot Application1.dll.config
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Bot Application1.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Bot Application1.pdb
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Autofac.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Chronic.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.Bot.Builder.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.Bot.Connector.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.Rest.ClientRuntime.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Newtonsoft.Json.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\System.Net.Http.Formatting.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\System.Web.Http.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\System.Web.Http.WebHost.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Autofac.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.Bot.Builder.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.Bot.Connector.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.IdentityModel.Protocol.Extensions.pdb
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.Rest.ClientRuntime.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\Newtonsoft.Json.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\System.Net.Http.Formatting.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\System.Web.Http.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\System.Web.Http.WebHost.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\obj\Debug\John.Bot.Sample.EchoBot.csprojResolveAssemblyReference.cache
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\obj\Debug\Bot Application1.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayTwo\John.Bot.Sample.EchoBot\John.Bot.Sample.EchoBot\obj\Debug\Bot Application1.pdb
