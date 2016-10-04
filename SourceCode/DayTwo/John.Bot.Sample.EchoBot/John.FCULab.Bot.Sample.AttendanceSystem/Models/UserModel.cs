@@ -15,5 +15,12 @@ namespace John.FCULab.Bot.Sample.AttendanceSystem.Models
         public int SickLeave { get; set; }
         public int FuneralLeave { get; set; }
         public int MenstrualLeave { get; set; }
+        public List<LeavePackage> leavePackage { get; set; }
+        [Serializable]
+        public class LeavePackage
+        {
+            public DateTime? LeaveDate { get; set; }
+            public String LeaveType { get; set; }
+        }
     }
 }
