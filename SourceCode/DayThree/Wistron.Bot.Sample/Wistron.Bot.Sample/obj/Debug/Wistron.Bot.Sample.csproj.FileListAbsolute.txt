@@ -1,0 +1,61 @@
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Bot Application1.dll.config
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Bot Application1.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Bot Application1.pdb
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\AuthBot.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Autofac.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Chronic.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.Bot.Builder.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.Bot.Connector.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.Identity.Client.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.Identity.Client.Platform.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Logging.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Tokens.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.Rest.ClientRuntime.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.Win32.Primitives.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Newtonsoft.Json.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Diagnostics.DiagnosticSource.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Net.Http.Formatting.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Runtime.Serialization.Primitives.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Security.Cryptography.Algorithms.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Security.Cryptography.Encoding.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Security.Cryptography.Primitives.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Security.Cryptography.X509Certificates.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Web.Http.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Web.Http.WebHost.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Autofac.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.Bot.Builder.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.Bot.Connector.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.Identity.Client.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.Identity.Client.Platform.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Logging.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Protocol.Extensions.pdb
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.IdentityModel.Tokens.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\Newtonsoft.Json.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Diagnostics.DiagnosticSource.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Net.Http.Formatting.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Web.Http.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\System.Web.Http.WebHost.xml
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\de-de\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\obj\Debug\Wistron.Bot.Sample.csprojResolveAssemblyReference.cache
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\obj\Debug\Bot Application1.dll
+C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\obj\Debug\Bot Application1.pdb
