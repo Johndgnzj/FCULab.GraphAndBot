@@ -75,12 +75,12 @@ namespace Wistron.Bot.Sample.Dialogs
                         reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
                         foreach(JToken j in jResult["value"].Children())
                         {
-                            actions.Add(new CardAction { Title = j["displayName"].ToString(), Value = "/" + MenuHelper.MainMenu.GETONECONTACT.ToString() + "/" + j["displayName"].ToString(), Type = ActionTypes.PostBack });
+                            actions.Add(new CardAction { Title = j["displayName"].ToString(), Value = MenuHelper.MainMenu.GETONECONTACT.ToString() + "/" + j["displayName"].ToString(), Type = ActionTypes.PostBack });
                         }
-                        actions.Add(new CardAction { Title = "Search By name", Value = "/" + MenuHelper.MainMenu.GETONECONTACT.ToString() + "/", Type = ActionTypes.PostBack });
+                        actions.Add(new CardAction { Title = "Search By name", Value = MenuHelper.MainMenu.GETONECONTACT.ToString() + "/", Type = ActionTypes.PostBack });
                         if (jResult["@odata.nextLink"] != null)
                         {
-                            actions.Add(new CardAction { Title = "Show More", Value = "/" + MenuHelper.MainMenu.GETONECONTACT.ToString() + "/" + jResult["@odata.nextLink"].ToString().Substring(jResult["@odata.nextLink"].ToString().IndexOf("?$skip=")), Type = ActionTypes.PostBack });
+                            actions.Add(new CardAction { Title = "Show More", Value = MenuHelper.MainMenu.GETONECONTACT.ToString() + "/" + jResult["@odata.nextLink"].ToString().Substring(jResult["@odata.nextLink"].ToString().IndexOf("?$skip=")), Type = ActionTypes.PostBack });
                         }
                         reply.Attachments.Add(
                                  new HeroCard

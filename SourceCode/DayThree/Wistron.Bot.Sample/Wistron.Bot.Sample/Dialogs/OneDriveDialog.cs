@@ -27,7 +27,7 @@ namespace Wistron.Bot.Sample.Dialogs
         public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
         {
             var message = await argument;
-            if (string.IsNullOrEmpty(message.Text) && message.Attachments != null)
+            if (string.IsNullOrEmpty(message.Text) && message.Attachments.Count > 0)
             {
                 try
                 {

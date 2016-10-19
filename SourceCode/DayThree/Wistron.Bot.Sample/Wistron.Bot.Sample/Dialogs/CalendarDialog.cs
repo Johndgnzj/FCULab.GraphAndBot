@@ -32,11 +32,11 @@ namespace Wistron.Bot.Sample.Dialogs
         public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
         {
             var message = await argument;
-            if (message.Text == ("/" + MenuHelper.MainMenu.GETCALENDAR.ToString()))
+            if (message.Text == ( MenuHelper.MainMenu.GETCALENDAR.ToString()))
             {
                 await GetCalendarList(context,this._SubjectName);
             }
-            else if (message.Text == ("/" + MenuHelper.MainMenu.CREATEEVENT.ToString()))
+            else if (message.Text == ( MenuHelper.MainMenu.CREATEEVENT.ToString()))
             {
                 //await context.Forward(new MailDialog(), ResumeAfterForward, message, CancellationToken.None);
                 PromptDialog.Text(context, ResumeAfterSubjectAsync, "Give a Subject", "didn't get it.");
@@ -93,7 +93,7 @@ namespace Wistron.Bot.Sample.Dialogs
                         }
                         if (jResult["@odata.nextLink"] != null)
                         {
-                            actions.Add(new CardAction { Title = "Show More", Value = "/" + MenuHelper.MainMenu.GETCALENDAR.ToString() + "/" + jResult["@odata.nextLink"].ToString().Substring(jResult["@odata.nextLink"].ToString().IndexOf("?$skip=")), Type = ActionTypes.PostBack });
+                            actions.Add(new CardAction { Title = "Show More", Value =  MenuHelper.MainMenu.GETCALENDAR.ToString() + "/" + jResult["@odata.nextLink"].ToString().Substring(jResult["@odata.nextLink"].ToString().IndexOf("?$skip=")), Type = ActionTypes.PostBack });
                         }
                         reply.Attachments.Add(
                                  new HeroCard

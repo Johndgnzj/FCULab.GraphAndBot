@@ -56,6 +56,5 @@ C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.
 C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\ja\Microsoft.Bot.Builder.resources.dll
 C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\ru\Microsoft.Bot.Builder.resources.dll
 C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
-C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\obj\Debug\Wistron.Bot.Sample.csprojResolveAssemblyReference.cache
 C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\obj\Debug\Bot Application1.dll
 C:\GitHub\FCULab.GraphAndBot\SourceCode\DayThree\Wistron.Bot.Sample\Wistron.Bot.Sample\obj\Debug\Bot Application1.pdb

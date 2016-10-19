@@ -15,6 +15,7 @@ using Wistron.Bot.Sample.Helpers;
 using System.IO;
 using System.Net;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Wistron.Bot.Sample.Dialogs
 {
@@ -29,67 +30,91 @@ namespace Wistron.Bot.Sample.Dialogs
         public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> item)
         {
             var message = await item;
-            if ((message.Text+"").ToLower() == "/menu")
+            try
             {
-                var accessToken = await context.GetAccessToken(AuthSettings.Scopes);
-                await ShowMenu(context, (string.IsNullOrEmpty(accessToken) ? false : true));
-            }
-            else if (message.Text == ("/" + MenuHelper.MainMenu.LOGON.ToString()))
-            {
-                //endpoint v2
-                if (string.IsNullOrEmpty(await context.GetAccessToken(AuthSettings.Scopes)))
+                if ((message.Text + "").ToLower() == "menu")
                 {
-                    await context.Forward(new AzureAuthDialog(AuthSettings.Scopes), this.ResumeAfterForward, message, CancellationToken.None);
+                    var accessToken = await context.GetAccessToken(AuthSettings.Scopes);
+                    await ShowMenu(context, (string.IsNullOrEmpty(accessToken) ? false : true));
+                }
+                else if (message.Text == MenuHelper.MainMenu.LOGON.ToString())
+                {
+                    //endpoint v2
+                    if (string.IsNullOrEmpty(await context.GetAccessToken(AuthSettings.Scopes)))
+                    {
+                        await context.Forward(new AzureAuthDialog(AuthSettings.Scopes), this.ResumeAfterForward, message, CancellationToken.None);
+                    }
+                    else
+                    {
+                        context.Wait(MessageReceivedAsync);
+                    }
+                }
+                else if (message.Text == (MenuHelper.MainMenu.TOKEN.ToString()))
+                {
+                    await GetTokenAsync(context);
+                }
+                else if (message.Text == (MenuHelper.MainMenu.LOGOUT.ToString()))
+                {
+                    await context.Logout();
+                    context.Wait(this.MessageReceivedAsync);
+                }
+                else if (message.Text == (MenuHelper.MainMenu.ME.ToString()))
+                {
+                    await GetUserDataAsync(context, message);
+                }
+                else if (message.Text == (MenuHelper.MainMenu.GETCONTACT.ToString()))
+                {
+                    await context.Forward(new ContactDialog(""), ResumeAfterForward, message, CancellationToken.None);
+                }
+                else if (message.Text == (MenuHelper.MainMenu.SENDEMAIL.ToString()) ||
+                    message.Text == (MenuHelper.MainMenu.GETEMAIL.ToString()))
+                {
+                    await context.Forward(new MailDialog(), ResumeAfterForward, message, CancellationToken.None);
+                }
+                else if ((message.Text + "").Contains(MenuHelper.MainMenu.GETCALENDAR.ToString()))
+                {
+                    string subject = message.Text.Replace(MenuHelper.MainMenu.GETCALENDAR.ToString() + "/", "");
+                    await context.Forward(new CalendarDialog(subject), ResumeAfterForward, message, CancellationToken.None);
+                }
+                else if (message.Text == (MenuHelper.MainMenu.CREATEEVENT.ToString()))
+                {
+                    await context.Forward(new CalendarDialog(""), ResumeAfterForward, message, CancellationToken.None);
+                }
+                else if (message.Text == (MenuHelper.MainMenu.GETONEDRIVE.ToString()))
+                {
+                    await context.Forward(new OneDriveDialog(), ResumeAfterForward, message, CancellationToken.None);
+                }
+                else if ((message.Text + "").Contains(MenuHelper.MainMenu.GETONECONTACT.ToString()))
+                {
+                    string content = message.Text.Replace(MenuHelper.MainMenu.GETONECONTACT.ToString() + "/", "");
+                    if (content != "")
+                        await context.Forward(new ContactDialog(content), ResumeAfterForward, message, CancellationToken.None);
+                    else
+                        PromptDialog.Text(context, AfterEnterNameAsync, "Give me a name who you're finding.", "that's not a name.");
                 }
                 else
                 {
+                    if (message.Attachments == null)
+                    {
+                        await context.PostAsync("Not support command:" + message.Text);
+                        context.Wait(MessageReceivedAsync);
+                    }
+                    else {
+                        if (message.Attachments.Count == 0)
+                        {
+                            context.Wait(MessageReceivedAsync);
+                        }
+                        else { 
+                            await context.Forward(new OneDriveDialog(), ResumeAfterForward, message, CancellationToken.None);
+                        }
+                    }
+                    await context.PostAsync("Not support command:" + message.Text);
                     context.Wait(MessageReceivedAsync);
                 }
-            }
-            else if (message.Text == ("/" + MenuHelper.MainMenu.TOKEN.ToString()))
+            }catch(Exception ex)
             {
-                await GetTokenAsync(context);
-            }
-            else if (message.Text == ("/" + MenuHelper.MainMenu.LOGOUT.ToString()))
-            {
-                await context.Logout();
-                context.Wait(this.MessageReceivedAsync);
-            }
-            else if (message.Text == ("/" + MenuHelper.MainMenu.ME.ToString()))
-            {
-                await GetUserDataAsync(context, message);
-            }
-            else if (message.Text == ("/" + MenuHelper.MainMenu.GETCONTACT.ToString()))
-            {
-                await context.Forward(new ContactDialog(""), ResumeAfterForward, message, CancellationToken.None);
-            }
-            else if (message.Text == ("/" + MenuHelper.MainMenu.SENDEMAIL.ToString()) ||
-                message.Text == ("/" + MenuHelper.MainMenu.GETEMAIL.ToString()))
-            {
-                await context.Forward(new MailDialog(), ResumeAfterForward, message, CancellationToken.None);
-            }
-            else if ((message.Text + "").Contains("/" + MenuHelper.MainMenu.GETCALENDAR.ToString()))
-            {
-                string subject = message.Text.Replace("/" + MenuHelper.MainMenu.GETCALENDAR.ToString() + "/", "");
-                await context.Forward(new CalendarDialog(subject), ResumeAfterForward, message, CancellationToken.None);
-            }
-            else if (message.Text == ("/" + MenuHelper.MainMenu.CREATEEVENT.ToString()))
-            {
-                await context.Forward(new CalendarDialog(""), ResumeAfterForward, message, CancellationToken.None);
-            }
-            else if (message.Text == ("/" + MenuHelper.MainMenu.GETONEDRIVE.ToString()) || message.Attachments != null)
-            {
-                await context.Forward(new OneDriveDialog(), ResumeAfterForward, message, CancellationToken.None);
-            }
-            else if ((message.Text+"").Contains("/" + MenuHelper.MainMenu.GETONECONTACT.ToString()) )
-            {
-                string content = message.Text.Replace("/" + MenuHelper.MainMenu.GETONECONTACT.ToString() + "/", "");
-                if (content != "")
-                    await context.Forward(new ContactDialog(content), ResumeAfterForward, message, CancellationToken.None);
-                else
-                    PromptDialog.Text(context, AfterEnterNameAsync, "Give me a name who you're finding.", "that's not a name.");
-            }else
-            {
+                await context.PostAsync(string.Format("Exception:{0}", ex.Message));
+                await context.PostAsync(JsonConvert.SerializeObject(message));
                 context.Wait(MessageReceivedAsync);
             }
         }
@@ -111,7 +136,7 @@ namespace Wistron.Bot.Sample.Dialogs
                 actions.Add(new CardAction
                 {
                     Title =MainMenu[i],
-                    Value = "/" + i,
+                    Value = i,
                     Type = ActionTypes.PostBack
                 });
             }
