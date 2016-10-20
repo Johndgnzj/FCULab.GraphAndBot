@@ -4,6 +4,8 @@ using System.Web.Http;
 using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Dialogs;
 using Wistron.Bot.Sample.Dialogs;
+using Wistron.Bot.Sample.Helpers;
+using Newtonsoft.Json;
 
 namespace Wistron.Bot.Sample
 {
@@ -18,6 +20,7 @@ namespace Wistron.Bot.Sample
         {
             if (activity != null && activity.GetActivityType() == ActivityTypes.Message)
             {
+                logHelper.Log2File("", "MessagesController", "Post", JsonConvert.SerializeObject(activity), "DEBUG");
                 await Conversation.SendAsync(activity, () => new ActionDialog());
             }
             else

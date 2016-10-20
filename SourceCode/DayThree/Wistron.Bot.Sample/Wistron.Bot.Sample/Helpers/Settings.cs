@@ -19,5 +19,8 @@ namespace Wistron.Bot.Sample.Helpers
 
         public static string OutlookUrl = @"https://outlook.office.com/";
 
+        public const int ThreeLineButtonConst = 3;
+        public const int FiveLineButtonConst = 5;
+        public const int SixLineButtonConst = 6;
     }
 }

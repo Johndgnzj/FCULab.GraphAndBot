@@ -22,7 +22,6 @@ namespace Wistron.Bot.Sample.Helpers
                 menu.Add(MainMenu.ME.ToString(), "Show My Info");
                 menu.Add(MainMenu.GETCONTACT.ToString(), "Get Contact List");
                 menu.Add(MainMenu.GETCALENDAR.ToString(), "Get Calendar Event List");
-                menu.Add(MainMenu.GETEMAIL.ToString(), "Get Email List");
                 menu.Add(MainMenu.GETONEDRIVE.ToString(), "Get OneDrive List");
                 menu.Add(MainMenu.SENDEMAIL.ToString(), "Send Email");
                 menu.Add(MainMenu.CREATEEVENT.ToString(), "Create an Event");

@@ -17,6 +17,9 @@ namespace Wistron.Bot.Sample
             AuthBot.Models.AuthSettings.ClientSecret = ConfigurationManager.AppSettings["ActiveDirectory.ClientSecret"];
             AuthBot.Models.AuthSettings.Scopes = ConfigurationManager.AppSettings["ActiveDirectory.Scopes"].Split(',');
 
+            string log4netPath = Server.MapPath("~/log4net.config");
+            log4net.Config.XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(log4netPath));
+
         }
     }
 }

@@ -1,18 +1,16 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using AuthBot;
-using AuthBot.Dialogs;
+﻿using AuthBot;
 using AuthBot.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Web;
-using Newtonsoft.Json.Linq;
-using Wistron.Bot.Sample.Helpers;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using Wistron.Bot.Sample.Helpers;
 
 namespace Wistron.Bot.Sample.Dialogs
 {
@@ -37,6 +35,7 @@ namespace Wistron.Bot.Sample.Dialogs
         public virtual async Task AfterToAsync(IDialogContext context, IAwaitable<String> argument)
         {
             var address = await argument;
+            address = Regex.Replace(address, "<[^>]+>", string.Empty); // 把<…>取代為空白
             context.UserData.SetValue<string>("/MAIL/ADDRESS", address);
             PromptDialog.Text(context, AfterSubjectAsync, "Email Subject", "didn't get it.");
         }
@@ -98,10 +97,13 @@ namespace Wistron.Bot.Sample.Dialogs
                 context.UserData.TryGetValue<string>("/MAIL/BODY", out body);
                 var ret = await SendEmailAsync(accessToken,
                 GetMailBody(subject, address, body));
-                if (string.IsNullOrEmpty(ret)) {
+                if (string.IsNullOrEmpty(ret))
+                {
                     context.Done("Your Email has was send.");
-                } else {
-                    context.Done("Send Email failed!");
+                }
+                else
+                {
+                    context.Done($"Send Email failed!({ret})");
                 }
             }
             else
@@ -133,6 +135,7 @@ namespace Wistron.Bot.Sample.Dialogs
                 }
                 else
                 {
+                    strRet = msg.StatusCode.ToString();
                     //throw new Exception(msg.StatusCode.ToString());
                 }
             }
@@ -147,23 +150,30 @@ namespace Wistron.Bot.Sample.Dialogs
         /// <returns></returns>
         public static string GetMailBody(String subject, String To, String body)
         {
-            var a = new { emailAddress = new { name = To, address = To } };
-            List<Object> attendees = new List<object> { a };
-            JObject o = JObject.FromObject(new
+            try
             {
-                Message = new
+                var a = new { emailAddress = new { name = To, address = To } };
+                List<Object> attendees = new List<object> { a };
+                JObject o = JObject.FromObject(new
                 {
-                    subject = (string.IsNullOrEmpty(subject) ? "透過程式建立的EMail" : subject),
-                    toRecipients = attendees,
-                    body = new
+                    Message = new
                     {
-                        contentType = "TEXT",
-                        content = body
+                        subject = (string.IsNullOrEmpty(subject) ? "透過程式建立的EMail" : subject),
+                        toRecipients = attendees,
+                        body = new
+                        {
+                            contentType = "TEXT",
+                            content = body
+                        }
                     }
-                }
-            });
+                });
 
-            return o.ToString();
+                return o.ToString();
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

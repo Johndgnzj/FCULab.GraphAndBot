@@ -37,7 +37,7 @@ namespace Wistron.Bot.Sample.Dialogs
                     var accessToken = await context.GetAccessToken(AuthSettings.Scopes);
                     await ShowMenu(context, (string.IsNullOrEmpty(accessToken) ? false : true));
                 }
-                else if (message.Text == MenuHelper.MainMenu.LOGON.ToString())
+                else if (message.Text.ToUpper() == MenuHelper.MainMenu.LOGON.ToString())
                 {
                     //endpoint v2
                     if (string.IsNullOrEmpty(await context.GetAccessToken(AuthSettings.Scopes)))
@@ -49,25 +49,25 @@ namespace Wistron.Bot.Sample.Dialogs
                         context.Wait(MessageReceivedAsync);
                     }
                 }
-                else if (message.Text == (MenuHelper.MainMenu.TOKEN.ToString()))
+                else if (message.Text.ToUpper() == (MenuHelper.MainMenu.TOKEN.ToString()))
                 {
                     await GetTokenAsync(context);
                 }
-                else if (message.Text == (MenuHelper.MainMenu.LOGOUT.ToString()))
+                else if (message.Text.ToUpper() == (MenuHelper.MainMenu.LOGOUT.ToString()))
                 {
                     await context.Logout();
                     context.Wait(this.MessageReceivedAsync);
                 }
-                else if (message.Text == (MenuHelper.MainMenu.ME.ToString()))
+                else if (message.Text.ToUpper() == (MenuHelper.MainMenu.ME.ToString()))
                 {
                     await GetUserDataAsync(context, message);
                 }
-                else if (message.Text == (MenuHelper.MainMenu.GETCONTACT.ToString()))
+                else if (message.Text.ToUpper() == (MenuHelper.MainMenu.GETCONTACT.ToString()))
                 {
                     await context.Forward(new ContactDialog(""), ResumeAfterForward, message, CancellationToken.None);
                 }
-                else if (message.Text == (MenuHelper.MainMenu.SENDEMAIL.ToString()) ||
-                    message.Text == (MenuHelper.MainMenu.GETEMAIL.ToString()))
+                else if (message.Text.ToUpper() == (MenuHelper.MainMenu.SENDEMAIL.ToString()) ||
+                    message.Text.ToUpper() == (MenuHelper.MainMenu.GETEMAIL.ToString()))
                 {
                     await context.Forward(new MailDialog(), ResumeAfterForward, message, CancellationToken.None);
                 }
@@ -76,11 +76,11 @@ namespace Wistron.Bot.Sample.Dialogs
                     string subject = message.Text.Replace(MenuHelper.MainMenu.GETCALENDAR.ToString() + "/", "");
                     await context.Forward(new CalendarDialog(subject), ResumeAfterForward, message, CancellationToken.None);
                 }
-                else if (message.Text == (MenuHelper.MainMenu.CREATEEVENT.ToString()))
+                else if (message.Text.ToUpper() == (MenuHelper.MainMenu.CREATEEVENT.ToString()))
                 {
                     await context.Forward(new CalendarDialog(""), ResumeAfterForward, message, CancellationToken.None);
                 }
-                else if (message.Text == (MenuHelper.MainMenu.GETONEDRIVE.ToString()))
+                else if (message.Text.ToUpper() == (MenuHelper.MainMenu.GETONEDRIVE.ToString()))
                 {
                     await context.Forward(new OneDriveDialog(), ResumeAfterForward, message, CancellationToken.None);
                 }
@@ -99,19 +99,20 @@ namespace Wistron.Bot.Sample.Dialogs
                         await context.PostAsync("Not support command:" + message.Text);
                         context.Wait(MessageReceivedAsync);
                     }
-                    else {
+                    else
+                    {
                         if (message.Attachments.Count == 0)
                         {
                             context.Wait(MessageReceivedAsync);
                         }
-                        else { 
+                        else
+                        {
                             await context.Forward(new OneDriveDialog(), ResumeAfterForward, message, CancellationToken.None);
                         }
                     }
-                    await context.PostAsync("Not support command:" + message.Text);
-                    context.Wait(MessageReceivedAsync);
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 await context.PostAsync(string.Format("Exception:{0}", ex.Message));
                 await context.PostAsync(JsonConvert.SerializeObject(message));
@@ -124,29 +125,36 @@ namespace Wistron.Bot.Sample.Dialogs
         /// <param name="context"></param>
         /// <param name="IsLogin"></param>
         /// <returns></returns>
-        private async Task ShowMenu(IDialogContext context,bool IsLogin)
+        private async Task ShowMenu(IDialogContext context, bool IsLogin)
         {
             var reply = context.MakeMessage();
             reply.Attachments = new List<Attachment>();
             Dictionary<String, String> MainMenu = MenuHelper.GetMainMenu(IsLogin);
             var actions = new List<CardAction>();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+            int buttonNum = 0;
             foreach (String i in MainMenu.Keys)
             {
                 actions.Add(new CardAction
                 {
-                    Title =MainMenu[i],
+                    Title = MainMenu[i],
                     Value = i,
-                    Type = ActionTypes.PostBack
+                    Type = ActionTypes.ImBack
                 });
+                ++buttonNum;
+                if (buttonNum % Settings.SixLineButtonConst == 0 || buttonNum == MainMenu.Count)
+                {
+                    reply.Attachments.Add(
+                             new HeroCard
+                             {
+                                 Title = "Main Menu",
+                                 Buttons = actions
+                             }.ToAttachment()
+                        );
+                    actions = new List<CardAction>();
+                }
             }
-            reply.Attachments.Add(
-                     new HeroCard
-                     {
-                         Title = "Main Menu",
-                         Buttons = actions
-                     }.ToAttachment()
-                );
+
             await context.PostAsync(reply);
             context.Wait(MessageReceivedAsync);
         }

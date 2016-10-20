@@ -9,9 +9,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Threading;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web;
 using Wistron.Bot.Sample.Helpers;
 
 namespace Wistron.Bot.Sample.Dialogs
@@ -32,11 +31,11 @@ namespace Wistron.Bot.Sample.Dialogs
         public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
         {
             var message = await argument;
-            if (message.Text == ( MenuHelper.MainMenu.GETCALENDAR.ToString()))
+            if (message.Text.ToUpper() == (MenuHelper.MainMenu.GETCALENDAR.ToString()))
             {
-                await GetCalendarList(context,this._SubjectName);
+                await GetCalendarList(context, this._SubjectName);
             }
-            else if (message.Text == ( MenuHelper.MainMenu.CREATEEVENT.ToString()))
+            else if (message.Text.ToUpper() == (MenuHelper.MainMenu.CREATEEVENT.ToString()))
             {
                 //await context.Forward(new MailDialog(), ResumeAfterForward, message, CancellationToken.None);
                 PromptDialog.Text(context, ResumeAfterSubjectAsync, "Give a Subject", "didn't get it.");
@@ -54,7 +53,7 @@ namespace Wistron.Bot.Sample.Dialogs
         /// <param name="context"></param>
         /// <param name="SubjectName"></param>
         /// <returns></returns>
-        private async Task GetCalendarList(IDialogContext context,String SubjectName)
+        private async Task GetCalendarList(IDialogContext context, String SubjectName)
         {
             var reply = context.MakeMessage();
 
@@ -93,16 +92,22 @@ namespace Wistron.Bot.Sample.Dialogs
                         }
                         if (jResult["@odata.nextLink"] != null)
                         {
-                            actions.Add(new CardAction { Title = "Show More", Value =  MenuHelper.MainMenu.GETCALENDAR.ToString() + "/" + jResult["@odata.nextLink"].ToString().Substring(jResult["@odata.nextLink"].ToString().IndexOf("?$skip=")), Type = ActionTypes.PostBack });
+                            actions.Add(new CardAction { Title = "Show More", Value = MenuHelper.MainMenu.GETCALENDAR.ToString() + "/" + jResult["@odata.nextLink"].ToString().Substring(jResult["@odata.nextLink"].ToString().IndexOf("?$skip=")), Type = ActionTypes.ImBack });
                         }
-                        reply.Attachments.Add(
-                                 new HeroCard
-                                 {
-                                     Title = "Your Events",
-                                     Subtitle = "Click to check detail",
-                                     Buttons = actions
-                                 }.ToAttachment()
-                            );
+
+                        var tmp_Actions = new List<CardAction>();
+                        foreach (var item in actions)
+                        {
+                            if (tmp_Actions.Count < Settings.ThreeLineButtonConst)
+                                tmp_Actions.Add(item);
+                            else
+                            {
+                                reply.Attachments.Add(new HeroCard { Title = "Your Events", Subtitle = "Click to check detail", Buttons = tmp_Actions }.ToAttachment());
+                                tmp_Actions = new List<CardAction>();
+                            }
+
+                        }
+
                     }
                     else
                     {
@@ -156,6 +161,7 @@ namespace Wistron.Bot.Sample.Dialogs
         public async Task ResumeAfterAttendeAsync(IDialogContext context, IAwaitable<string> argument)
         {
             var attende = await argument;
+            attende = Regex.Replace(attende, "<[^>]+>", string.Empty); // 把<…>取代為空白
             var accessToken = await context.GetAccessToken(AuthSettings.Scopes);
             string subject;
             DateTime startdate;
@@ -163,7 +169,7 @@ namespace Wistron.Bot.Sample.Dialogs
             context.UserData.TryGetValue<DateTime>("tmp_event_startdate", out startdate);
             var ret = await CreateEventAsync(accessToken,
                 getCalendarEventContents(subject, await getMeInfo(accessToken), startdate, startdate.AddHours(1), attende, attende));
-            if (!string.IsNullOrEmpty(ret)) { context.Done(ret); } else { context.Done("Create failed!"); }
+            if (!string.IsNullOrEmpty(ret)) { context.Done("Create successed!!"); } else { context.Done("Create failed!"); }
         }
         /// <summary>
         /// 取得登入者的資料

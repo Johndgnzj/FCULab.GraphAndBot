@@ -1,16 +1,14 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using AuthBot;
-using AuthBot.Dialogs;
+﻿using AuthBot;
 using AuthBot.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Web;
-using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 using Wistron.Bot.Sample.Helpers;
 namespace Wistron.Bot.Sample.Dialogs
 {
@@ -73,23 +71,28 @@ namespace Wistron.Bot.Sample.Dialogs
                         // 多個結果的卡片
                         var actions = new List<CardAction>();
                         reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
-                        foreach(JToken j in jResult["value"].Children())
+                        foreach (JToken j in jResult["value"].Children())
                         {
-                            actions.Add(new CardAction { Title = j["displayName"].ToString(), Value = MenuHelper.MainMenu.GETONECONTACT.ToString() + "/" + j["displayName"].ToString(), Type = ActionTypes.PostBack });
+                            actions.Add(new CardAction { Title = j["displayName"].ToString(), Value = MenuHelper.MainMenu.GETONECONTACT.ToString() + "/" + j["displayName"].ToString(), Type = ActionTypes.ImBack });
                         }
-                        actions.Add(new CardAction { Title = "Search By name", Value = MenuHelper.MainMenu.GETONECONTACT.ToString() + "/", Type = ActionTypes.PostBack });
+                        actions.Add(new CardAction { Title = "Search By name", Value = MenuHelper.MainMenu.GETONECONTACT.ToString() + "/", Type = ActionTypes.ImBack });
                         if (jResult["@odata.nextLink"] != null)
                         {
-                            actions.Add(new CardAction { Title = "Show More", Value = MenuHelper.MainMenu.GETONECONTACT.ToString() + "/" + jResult["@odata.nextLink"].ToString().Substring(jResult["@odata.nextLink"].ToString().IndexOf("?$skip=")), Type = ActionTypes.PostBack });
+                            actions.Add(new CardAction { Title = "Show More", Value = MenuHelper.MainMenu.GETONECONTACT.ToString() + "/" + jResult["@odata.nextLink"].ToString().Substring(jResult["@odata.nextLink"].ToString().IndexOf("?$skip=")), Type = ActionTypes.ImBack });
                         }
-                        reply.Attachments.Add(
-                                 new HeroCard
-                                 {
-                                     Title = "Your Contacts",
-                                     Subtitle = "Click to check detail",
-                                     Buttons = actions
-                                 }.ToAttachment()
-                            );
+                        var tmp_Actions = new List<CardAction>();
+                        foreach (var item in actions)
+                        {
+                            if (tmp_Actions.Count < Settings.ThreeLineButtonConst)
+                                tmp_Actions.Add(item);
+                            else
+                            {
+                                reply.Attachments.Add(new HeroCard { Title = "Your Contacts", Subtitle = "Click to check detail", Buttons = tmp_Actions }.ToAttachment());
+                                tmp_Actions = new List<CardAction>();
+                            }
+
+                        }
+                        
                         // 單一結果時的卡片
                         ///TODO
                     }
